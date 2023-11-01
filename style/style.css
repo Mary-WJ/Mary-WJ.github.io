@@ -368,9 +368,9 @@ form input, textarea{
     padding: 5px;
 }
 
-textarea:focus, input:focus{
-    outline: none;
-}
+/* textarea:focus, input:focus{
+    outline: black;
+} */
 
 form button{
     padding: 8px;
