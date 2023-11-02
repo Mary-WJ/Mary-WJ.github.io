@@ -129,21 +129,22 @@ main + section{
 
 
 #comment-section{
-    border: 10px solid rgb(161, 161, 206);
+    border: 10px solid black;
     border-radius: 10px 15px;
     padding: 20px;
     margin: 0 auto;
     margin-bottom: 20px; 
     width: 50vw;
-    min-height: 500px; /* Set a minimum height */
-    height: auto; /* Allow the div to stretch based on content */
-    overflow-y: auto;
-    
+    height: 550px; /* Set a minimum height */
+    /* height: auto; Allow the div to stretch based on content */
+    overflow-y: scroll;
 }
 
-#comment-section:hover{
-    border-color: yellow;
-}
+
+
+/* #comment-section:hover{
+    border-color: black;
+} */
 
 #form-box{
     display: grid;
@@ -164,13 +165,13 @@ main + section{
 }
 
 .btn-primary:hover{
-    background-color: rgb(151, 110, 110);
+    background-color: rgb(121, 64, 64);
     color: white;
     
 }
 
 .btn-primary:active{
-    background-color: rgb(151, 110, 110) !important;
+    background-color: rgb(92, 138, 136) !important;
 }
 
 
@@ -372,7 +373,7 @@ form input, textarea{
     outline: black;
 } */
 
-form button{
+form #contactSubmit{
     padding: 8px;
     font-size: 18px;
     background-color: #83764F;
@@ -384,7 +385,38 @@ form button{
 }
 
 
-form button:hover{
+#contact-main button:hover{
     box-shadow: 2px 3px 2px #A2A378;
     transform: scale(1.2);
 }
+
+
+
+/* comment display in the UI */
+
+.userComment{
+    color: black;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin: 30px 20px;
+    font-size: 20px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+
+
+.userComment .fa-trash-can {
+    color: rgb(199, 36, 36);
+    font-size: 25px;
+}
+
+
+.deleteList{
+    background-color:transparent ;
+    border: none;
+    margin: 10px;
+    
+    
+}
+
