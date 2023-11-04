@@ -360,18 +360,11 @@ form h3{
 }
 
 
-form input, textarea{
-    margin: 8px;
-    padding-top: 30x;
-    font-size: 15px;
+#contact-form input, #message{
+    border: 2px solid grey;
     border-radius: 8px;
-    border: 2px solid gray;
-    padding: 5px;
 }
 
-/* textarea:focus, input:focus{
-    outline: black;
-} */
 
 form #contactSubmit{
     padding: 8px;

@@ -30,16 +30,25 @@
     <main id="contact-main">
             <form id="contact-form">
                 <h3>Contact Form</h3>
-                <label for="name">Name:
-                    <input type="text" id="name" name="name"  placeholder="Enter Name" autocomplete="on">
-                </label>
-                <label for="name">Email:
-                    <input type="email" id="email" name="email"  placeholder="Enter Email" autocomplete="on">
-                </label>
-                <label for="name">Phone:
-                    <input type="text" id="phone" name="phone"  placeholder="Enter Phone number" autocomplete="on">
-                </label>
-                <textarea name="message" id="message"  rows="10" required></textarea>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text"  name="name" class="form-control" id="name" autocomplete="on" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address:</label>
+                    <input type="email"  name="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="on" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="text"  name="phone" class="form-control" id="phone" autocomplete="on" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Leave a message:</label>
+                    <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+                </div>
+                
                 <button type="submit" id="contactSubmit">Send</button>
             </form>
     </main>
