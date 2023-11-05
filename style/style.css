@@ -46,16 +46,27 @@ nav a:hover{
     text-transform: uppercase;
 }
 
-#signup{
-    padding: 10px;
+
+#btn-login{
+    margin-right: 40px;
 }
 
-#signup:hover{
-    cursor: pointer;
-    box-shadow: 3px 3px white;
-    background-color: black;
+#btn-signup, #btn-login{
+    padding: 9px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(238, 109, 109);
     color: white;
-    border-radius: 30px;
+
+
+}
+
+#btn-signup:hover, #btn-login:hover{
+    cursor: pointer;
+    background-color: rgb(152, 131, 10);
+    color: black;
+
     
 }
 
@@ -129,7 +140,7 @@ main + section{
 
 
 #comment-section{
-    border: 10px solid black;
+    border: 10px solid rgb(40, 38, 38);
     border-radius: 10px 15px;
     padding: 20px;
     margin: 0 auto;
@@ -140,11 +151,6 @@ main + section{
     overflow-y: scroll;
 }
 
-
-
-/* #comment-section:hover{
-    border-color: black;
-} */
 
 #form-box{
     display: grid;
@@ -388,28 +394,93 @@ form #contactSubmit{
 /* comment display in the UI */
 
 .userComment{
-    color: black;
-    border: 2px solid black;
-    border-radius: 30px;
+    border: 2px solid rgb(179, 179, 131);
+    border-radius: 10px;
     margin: 30px 20px;
-    font-size: 20px;
     list-style-type: none;
     padding: 10px;
 }
 
 
-
 .userComment .fa-trash-can {
-    color: rgb(199, 36, 36);
+    color: black;
     font-size: 25px;
+    padding-left: 30px;
 }
 
+.userComment .fa-trash-can:hover{
+    color: rgb(164, 38, 38);
+    
+}
 
 .deleteList{
     background-color:transparent ;
     border: none;
     margin: 10px;
     
+    
+}
+
+
+.comment-name{
+    font-weight: bold;
+    display: block; 
+    font-size: 1.5em;
+    padding-bottom: 7px;
+    
+}
+
+  
+.comment-text {
+    display: block; 
+}
+  
+
+#signup-page{
+    /* border: 10px solid rgb(106, 172, 65); */
+    margin: 150px auto;
+    width: 500px;
+    height: 500px;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 8px 5px red;
+    
+}
+
+#signup-page p{
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+
+#signup{
+    margin: 50px;
+    font-size: 20px; 
+}
+
+
+#signup .form-control{
+    height: 50px;
+    font-size: 18px;
+    border: 2px solid grey;
+}
+
+
+#btnSignUp{
+    padding: 10px;
+    margin: 40px;
+    margin-left: 130px;
+    border-radius: 5px;
+    background-color: rgb(147, 37, 37);
+    border: none;
+    color: white;
+}
+
+
+#btnSignUp:hover{
+    background-color: black;
+    color: white;
     
 }
 
