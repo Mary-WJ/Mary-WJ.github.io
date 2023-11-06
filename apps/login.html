@@ -14,16 +14,19 @@
 </head>
 <body>
     
-    <div class="login-container">
-        <h2>Login</h2>
+    <div id="login-page">
+        <p>Log In</p>
         <form id="login-form">
-            <label for="email">Email address:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address:</label>
+                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="example@gmail.com" autocomplete="on" required>
+            </div>
+            <div>
+                <label for="inputPassword5" class="form-label">Password:</label>
+                <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock" placeholder="password" autocomplete="on" required>
+            </div>
             
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Log In</button>
+            <button type="submit" id="btnLogin">Log In</button>
         </form>
     </div>
 
