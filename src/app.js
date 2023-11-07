@@ -197,7 +197,8 @@ if(displayCommentUI){
                     // Clear the form fields
                     addComment.reset();
 
-                    // Update the timestamp once the server returns it
+                    // Update the timestamp once the server returns it 
+                    //to current local time
                     getDoc(docRef).then((doc) => {
                         if (doc.exists()) {
                             const data = doc.data();
