@@ -5,8 +5,6 @@ import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, on
 
 
 const displayCommentUI = document.querySelector('#display-comment');
-
-
 const addComment = document.getElementById('formSubmit');
 const contactForm = document.querySelector('#contact-form');
 
@@ -126,6 +124,7 @@ function renderComment(commentData) {
 
 
 if(displayCommentUI){
+
     // Retrieve existing comments and render them
     const colRef = collection(db, 'Comments');
 
@@ -143,106 +142,134 @@ if(displayCommentUI){
 
 
 
-if (addComment) {
-    addComment.addEventListener('submit', (e) => {
-        e.preventDefault();
 
-        let textComment = addComment.comment.value;
-        let textName = addComment.name.value;
-       
 
-        const li = document.createElement('li');
-        const nameSpan = document.createElement('span'); // Span for name
-        const commentSpan = document.createElement('span');
-        const timeSpan = document.createElement('span');
-        const btn = document.createElement('button');
-        const i = document.createElement('i');
+    if (addComment) {
+        addComment.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        addDoc(colRef, {
-            name: textName,
-            comment: textComment,
-            time: serverTimestamp()
-        })
-        .then((docRef) => {
+            // Get the current user
+            const user = auth.currentUser;
 
-            const commentId = docRef.id;
-            li.setAttribute('data-id', commentId);
+            if (user) {
+                let textComment = addComment.comment.value;
+                let textName = addComment.name.value;
 
-            btn.classList.add('deleteList');
-            i.className = "fa-solid fa-trash-can";
-            btn.appendChild(i);
+                const li = document.createElement('li');
+                const nameSpan = document.createElement('span');
+                const commentSpan = document.createElement('span');
+                const timeSpan = document.createElement('span');
+                const btn = document.createElement('button');
+                const i = document.createElement('i');
 
-            li.classList.add('userComment');
-            nameSpan.textContent = textName; 
-            nameSpan.classList.add('comment-name'); 
+                // Add the comment to Firestore with the user ID
+                addDoc(colRef, {
+                    name: textName,
+                    comment: textComment,
+                    time: serverTimestamp(),
+                    userId: user.uid // Include the user ID of the commenter
+                })
+                .then((docRef) => {
+                    const commentId = docRef.id;
+                    li.setAttribute('data-id', commentId);
 
-            commentSpan.textContent = textComment; 
-            commentSpan.classList.add('comment-text');
+                    btn.classList.add('deleteList');
+                    i.className = "fa-solid fa-trash-can";
+                    btn.appendChild(i);
 
-            //current date and time
-            timeSpan.classList.add('text-Time');
-            timeSpan.textContent = 'Loading...'; 
+                    li.classList.add('userComment');
+                    nameSpan.textContent = textName;
+                    nameSpan.classList.add('comment-name'); 
 
-            
-            li.appendChild(nameSpan);
-            li.appendChild(commentSpan);
-            li.appendChild(timeSpan);
-            li.appendChild(btn);
+                    commentSpan.textContent = textComment;
+                    commentSpan.classList.add('comment-text');
 
-            
-            // Existing code to append comments
-            displayCommentUI.appendChild(li);
-            
-            //clear textarea input
-            addComment.reset();
+                    timeSpan.classList.add('text-Time');
+                    timeSpan.textContent = 'Loading...'; 
 
-            getDoc(docRef).then((doc) => {
-                if (doc.exists()) {
-                    const data = doc.data();
-                    if (data.time) {
-                        // Convert the timestamp to a readable date string
-                        const date = data.time.toDate().toLocaleString();
-                        timeSpan.textContent = date; // Update the text content with the date
-                    }
-                }
-            });
+                    li.appendChild(nameSpan);
+                    li.appendChild(commentSpan);
+                    li.appendChild(timeSpan);
+                    li.appendChild(btn);
 
-        })
-        .catch(err => {
-            console.log(err);
+                    displayCommentUI.appendChild(li);
+
+                    // Clear the form fields
+                    addComment.reset();
+
+                    // Update the timestamp once the server returns it
+                    getDoc(docRef).then((doc) => {
+                        if (doc.exists()) {
+                            const data = doc.data();
+                            if (data.time) {
+                                const date = data.time.toDate().toLocaleString();
+                                timeSpan.textContent = date; 
+                            }
+                        }
+                    });
+
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('There was an error posting your comment. Please try again.');
+                });
+            } else {
+                alert('You must be logged in to post a comment.');
+            }
         });
-    });
-}
-
+    }
 
 
     displayCommentUI.addEventListener('click', (e) => {
         if (e.target.classList.contains('deleteList') || e.target.parentElement.classList.contains('deleteList')) {
             e.preventDefault();
-    
-            // Confirm 
-            const confirmDeletion = confirm("Are you sure you want to delete this comment?");
-    
-            if (confirmDeletion) {
-                // User clicked OK
-                const liToDelete = e.target.closest('.userComment');
-                const commentId = liToDelete.getAttribute('data-id');
-                
-                const docRef = doc(db, 'Comments', commentId);
-        
-                deleteDoc(docRef).then(() => {
-                    liToDelete.remove();
-                }).catch(error => {
-                    console.error(error);
-                    alert('There was a problem deleting the comment.');
-                });
-            } else {
-                // User clicked Cancel, do nothing
+
+            //get current user
+            const user = auth.currentUser;
+            if (user) {
+
+                const confirmDeletion = confirm("Are you sure you want to delete this comment?");
+                if (confirmDeletion) {
+                    const liToDelete = e.target.closest('.userComment');
+                    const commentId = liToDelete.getAttribute('data-id');
+
+
+                    const docRef = doc(db, 'Comments', commentId);
+                    
+                    getDoc(docRef).then((docSnap) => {
+                        if (docSnap.exists() && docSnap.data().userId === user.uid) {
+                            // User is the creator of the comment, proceed to delete
+                            deleteDoc(docRef).then(() => {
+                                liToDelete.remove();
+                                alert('Comment deleted successfully.');
+                            }).catch(error => {
+                                console.error(error);
+                                alert('There was a problem deleting the comment.');
+                            });
+                            
+                        } else {
+                            // User is not the creator of the comment
+                            alert('You can only delete comments that you have created.');
+                        }
+
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert('There was a problem fetching the comment details.');
+                    });
+
+                }
+
+            }else {
+                alert('You must be logged in to delete a comment.');
             }
         }
     });
-    
+
+
 }
+
+
 
 
 
@@ -281,6 +308,7 @@ if(contactForm){
 
 
 
+
 //create new user and store credential in firebase.
 //those who have signup can not sign up again using same sign up info
 if(signupForm){
@@ -309,6 +337,9 @@ if(signupForm){
 
 
 
+
+
+//login form
 if(loginForm){
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -325,8 +356,7 @@ if(loginForm){
           
         })
         .catch((error) => {
-            // const errorCode = error.code;
-            // const errorMessage = error.message;
+            console.error(error);
 
             alert(error);
             loginForm.reset();
