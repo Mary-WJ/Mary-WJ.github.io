@@ -13,22 +13,37 @@
     <title>Log In</title>
 </head>
 <body>
+    <header>
+        <div id="head-container">
+            <a href="#" id="logo">MARY</a>
+            <nav>
+                <ul>
+                    <li>
+                        <button type="button" id="btn-signup">Sign Up</button>
+                    </li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main style="margin: 0; padding: 0;">
+        <div id="login-page">
+            <p>Log In</p>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address:</label>
+                    <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="example@gmail.com" autocomplete="on" required>
+                </div>
+                <div>
+                    <label for="inputPassword5" class="form-label">Password:</label>
+                    <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock" placeholder="password" autocomplete="on" required>
+                </div>
+                
+                <button type="submit" id="btnLogin">Log In</button>
+            </form>
+        </div>
+    </main>
     
-    <div id="login-page">
-        <p>Log In</p>
-        <form id="login-form">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="example@gmail.com" autocomplete="on" required>
-            </div>
-            <div>
-                <label for="inputPassword5" class="form-label">Password:</label>
-                <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock" placeholder="password" autocomplete="on" required>
-            </div>
-            
-            <button type="submit" id="btnLogin">Log In</button>
-        </form>
-    </div>
+  
 
 
 
