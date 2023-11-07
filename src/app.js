@@ -22,16 +22,23 @@ const logInBtn = document.getElementById('btn-login');
 
 
 // Auth state changes listener
+//check if user is currently sign up or log in
 onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, so change the button to Log Out
-      logInBtn.style.display = 'none';
-      signUpBtn.textContent = 'Log Out';
+
+      if(logInBtn){
+        logInBtn.style.display = 'none';
+        signUpBtn.textContent = 'Log Out';
+      }
+      
       signUpBtn.onclick = () => {
         signOut(auth).then(() => {
           alert('logging out');
+
           // after logging out, direct to home
           window.location.assign('../apps/index.html');
+
         }).catch((error) => {
           alert(error);
         });
@@ -46,15 +53,26 @@ onAuthStateChanged(auth, (user) => {
 
             }
         }
-    
      
     }
 
 });
 
 
+//direct to log in page
+if(logInBtn){
+    logInBtn.addEventListener('click', () => {
+        // Redirect to the log in page for user who have already sign up
+        window.location.href = '../apps/login.html';
+        
+    })
+    
+}
 
-// Function to render a comment to the UI
+
+
+
+// Function to render a comment to the UI 
 function renderComment(commentData) {
 
     const li = document.createElement('li');
@@ -198,7 +216,6 @@ if (addComment) {
 
 
 
-
     displayCommentUI.addEventListener('click', (e) => {
         if (e.target.classList.contains('deleteList') || e.target.parentElement.classList.contains('deleteList')) {
             e.preventDefault();
@@ -226,8 +243,6 @@ if (addComment) {
     });
     
 }
-
-
 
 
 
@@ -262,28 +277,6 @@ if(contactForm){
           // Show an error message to the user
         }
       });
-}
-
-
-
-//direct to sign up page
-if(signUpBtn){
-    signUpBtn.addEventListener('click', () => {
-        // Redirect to the sign-up page
-        window.location.href = '../apps/signup.html';
-        
-    })
-    
-}
-
-//direct to log in page
-if(logInBtn){
-    logInBtn.addEventListener('click', () => {
-        // Redirect to the log in page for user who have already sign up
-        window.location.href = '../apps/login.html';
-        
-    })
-    
 }
 
 
