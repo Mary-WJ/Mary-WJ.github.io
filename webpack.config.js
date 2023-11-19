@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: './src/app.js', // Your main JavaScript entry point
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
