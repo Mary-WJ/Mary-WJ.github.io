@@ -1,0 +1,30 @@
+{
+  "name": "lab-template",
+  "version": "1.0.0",
+  "description": "A repo for SDV503 student labs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alikahwaji/Lab-template.git"
+  },
+  "keywords": [
+    "SDV503"
+  ],
+  "author": "Ali Kahwaji",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alikahwaji/Lab-template/issues"
+  },
+  "homepage": "https://github.com/alikahwaji/Lab-template#readme",
+  "dependencies": {
+    "firebase": "^10.5.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
