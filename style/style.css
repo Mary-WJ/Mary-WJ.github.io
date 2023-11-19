@@ -395,7 +395,8 @@ form #contactSubmit{
 /* comment display in the UI */
 
 .userComment{
-    border: 2px solid rgb(179, 179, 131);
+    border: 5px solid #9b9d07;
+    background-color: white;
     border-radius: 10px;
     margin: 30px 20px;
     list-style-type: none;
