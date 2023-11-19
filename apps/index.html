@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/052e324cbb.js" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <div id="head-container">
+            <a href="#" id="logo">MARY</a>
+            <nav>
+                <ul>
+                    <!-- <li><a href="index.html">Home</a></li> -->
+                    <li><a href="project.html">Projects</a></li>
+                    <li><a href="skill.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <button type="button" id="btn-login">Log In</button>
+                    </li>
+                    <li>
+                        <button type="button" id="btn-signup">Sign Up</button>
+                    </li>  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home-main">
+        <section id="content">
+            <h1>Hi, there</h1>
+            <h2>Welcome to my Portfolio!</h2>
+            <div id="description">
+                <p>My name is Mary par.</p>
+                <p>A passionate student who's currently studying Information Technology.</p>
+            </div>
+        </section>
+        <section id="social">
+            <div id="icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://github.com/Mary-WJ"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </section>
+    </main>
+    <section>
+        <div>
+            <p id="text-com">Comments</p>
+            <!-- comment section is use to style the comment box -->
+            <div id="comment-section">
+                <form action="#" id="form-container">
+                    <div id="display-comment">
+                        <!-- <li class="userComment" data-id = 'id'>>This is some text
+                            <button class="deleteList" 
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </li> -->
+                    </div>
+                </form>
+            </div> 
+        </div>
+    
+        <div id="form-box">
+            <p style="font-style: italic;">Please Logged in or Sign up to comment</p>
+            <form action="#" id="formSubmit">
+                <!-- when user submit comment - the text will be push to the ul - li area where 'id = display-comment' -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Name" autocomplete="on">
+                    <label for="floatingInput">Name</label>
+                  </div>
+        
+
+                <div class="form-floating">
+                    <textarea class="form-control"  name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px;" autocomplete="on"></textarea>
+                    <label for="floatingTextarea2">Comment</label>
+                </div>
+                <input class="btn btn-primary btn-custom" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    
+ 
+    
+
+
+
+
+
+ <!-- bootstrap -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+ <!-- custom js -->
+ <script src="/dist/bundle.js"></script>
+ <script src="/src/side.js"></script>
+    
+  
+</body>
+</html>
