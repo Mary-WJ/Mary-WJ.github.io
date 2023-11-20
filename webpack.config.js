@@ -29,7 +29,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './apps/index.html',
       filename: 'index.html',
-      chunks: ['app'] // Include both app and side bundles
+      chunks: ['app', 'side'] // Include both app and side bundles
     }),
     new HtmlWebpackPlugin({
       template: './apps/contact.html',

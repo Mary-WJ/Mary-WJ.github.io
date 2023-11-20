@@ -1,6 +1,4 @@
 import '../style/style.css';
-
-
 import {db, auth} from './firebase-sdk.js';
 import { collection, getDocs, addDoc, deleteDoc, doc, serverTimestamp, getDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
@@ -315,7 +313,7 @@ if(contactForm){
 
 //create new user and store credential in firebase.
 //those who have signup can not sign up again using same sign up info
-// if(signupForm){
+if(signupForm){
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
      
@@ -337,13 +335,13 @@ if(contactForm){
         })
     
     })
-// }
+ }
 
 
 
 
 //login form
-// if(loginForm){
+if(loginForm){
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -366,6 +364,6 @@ if(contactForm){
         });
 
     })
-// }
+}
 
 
