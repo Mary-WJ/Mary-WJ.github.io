@@ -314,9 +314,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('btn-login').addEventListener('click', function() {
       window.location.href = 'login.html';
     });
+
     document.getElementById('btn-signup').addEventListener('click', function() {
       window.location.href = 'signup.html';
     });
+    
   });
   
 
