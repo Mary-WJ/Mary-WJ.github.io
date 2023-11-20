@@ -36,7 +36,7 @@ onAuthStateChanged(auth, (user) => {
           alert('logging out');
 
           // after logging out, direct to home
-          window.location.assign('../apps/index.html');
+          window.location.assign('/index.html');
 
         }).catch((error) => {
           alert(error);
@@ -48,7 +48,7 @@ onAuthStateChanged(auth, (user) => {
         if(signUpBtn){
             signUpBtn.textContent = 'Sign Up';
             signUpBtn.onclick = () => {
-            window.location.href = '../apps/signup.html';
+            window.location.href = '/signup.html';
 
             }
         }
@@ -62,11 +62,14 @@ onAuthStateChanged(auth, (user) => {
 if(logInBtn){
     logInBtn.addEventListener('click', () => {
         // Redirect to the log in page for user who have already sign up
-        window.location.href = '../apps/login.html';
+        window.location.href = '/login.html';
         
     })
     
 }
+
+
+
 
 
 
