@@ -316,9 +316,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('btn-signup').addEventListener('click', function() {
-      window.location.href = 'signup.html';
-    });
-    
+        window.location.href = 'signup.html'; // Make sure 'signup.html' is at the root
+    });      
+
   });
   
 
@@ -363,7 +363,7 @@ if(loginForm){
         .then((userCredential) => {
             // log in 
             alert('User Logged in')
-            window.location.assign('index.html')
+            window.location.assign('index.html');
             
           
         })
