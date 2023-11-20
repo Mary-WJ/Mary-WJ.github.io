@@ -327,7 +327,7 @@ if(signupForm){
             //user create
             alert('Successfully Sign Up');
 
-            window.location.assign('../apps/index.html');
+            window.location.assign('../docs/index.html');
         })
         .catch((err)=> {
             alert(err);
@@ -353,7 +353,7 @@ if(loginForm){
         .then((userCredential) => {
             // log in 
             alert('User Logged in')
-            window.location.assign('../apps/index.html')
+            window.location.assign('../docs/index.html')
             
           
         })
