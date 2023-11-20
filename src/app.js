@@ -310,18 +310,6 @@ if(contactForm){
 
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     document.getElementById('btn-login').addEventListener('click', function() {
-//       window.location.href = 'login.html';
-//     });
-
-//     document.getElementById('btn-signup').addEventListener('click', function() {
-//         window.location.href = 'signup.html'; // Make sure 'signup.html' is at the root
-//     });      
-
-//   });
-  
-
 //create new user and store credential in firebase.
 //those who have signup can not sign up again using same sign up info
 if(signupForm){
