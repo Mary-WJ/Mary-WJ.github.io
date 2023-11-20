@@ -1,5 +1,6 @@
 import '../style/style.css';
 
+
 import {db, auth} from './firebase-sdk.js';
 import { collection, getDocs, addDoc, deleteDoc, doc, serverTimestamp, getDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
