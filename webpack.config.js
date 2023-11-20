@@ -33,7 +33,7 @@ module.exports = {
       filename: 'contact.html'
     }),
     new HtmlWebpackPlugin({
-      template: './apps/login.html',
+      template: './login.html',
       filename: 'login.html'
     }),
     new HtmlWebpackPlugin({
@@ -41,7 +41,7 @@ module.exports = {
       filename: 'project.html'
     }),
     new HtmlWebpackPlugin({
-      template: './apps/signup.html',
+      template: './signup.html',
       filename: 'signup.html'
     }),
     new HtmlWebpackPlugin({
