@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Import the plugin
 
 module.exports = {
   mode: 'development',
@@ -12,11 +13,17 @@ module.exports = {
     rules: [
       {
         test: /\.css$/, // For CSS files
-        use: ['style-loader', 'css-loader'] // To process CSS files
-      }
+        use: [MiniCssExtractPlugin.loader, 'css-loader'] // Use MiniCssExtractPlugin loader here
+      },
+      // Add additional rules for other file types if necessary
     ]
   },
   plugins: [
+    // Instantiate the plugin with options
+    new MiniCssExtractPlugin({
+      filename: '[name].css', // Output CSS file name pattern
+    }),
+    // Set up HtmlWebpackPlugin instances for each HTML file
     new HtmlWebpackPlugin({
       template: './apps/index.html',
       filename: 'index.html'
@@ -41,6 +48,8 @@ module.exports = {
       template: './apps/skill.html',
       filename: 'skill.html'
     }),
+    
   ],
   
 };
+
