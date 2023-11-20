@@ -313,6 +313,7 @@ if(contactForm){
 
 //create new user and store credential in firebase.
 //those who have signup can not sign up again using same sign up info
+
 if(signupForm){
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -341,6 +342,7 @@ if(signupForm){
 
 
 //login form
+
 if(loginForm){
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
