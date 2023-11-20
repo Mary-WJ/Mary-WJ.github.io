@@ -310,16 +310,16 @@ if(contactForm){
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn-login').addEventListener('click', function() {
-      window.location.href = 'login.html';
-    });
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('btn-login').addEventListener('click', function() {
+//       window.location.href = 'login.html';
+//     });
 
-    document.getElementById('btn-signup').addEventListener('click', function() {
-        window.location.href = 'signup.html'; // Make sure 'signup.html' is at the root
-    });      
+//     document.getElementById('btn-signup').addEventListener('click', function() {
+//         window.location.href = 'signup.html'; // Make sure 'signup.html' is at the root
+//     });      
 
-  });
+//   });
   
 
 //create new user and store credential in firebase.
