@@ -365,20 +365,3 @@ if(loginForm){
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Assuming 'btn-login' is an ID for a button that should take the user to the login page
-    const loginButton = document.getElementById('btn-login');
-    if (loginButton) {
-        loginButton.addEventListener('click', function() {
-            window.location.href = '/login.html'; // Adjust the path as necessary
-        });
-    }
-
-    // Do the same for the signup button if necessary
-    const signupButton = document.getElementById('btn-signup');
-    if (signupButton) {
-        signupButton.addEventListener('click', function() {
-            window.location.href = '/signup.html'; // Adjust the path as necessary
-        });
-    }
-});
