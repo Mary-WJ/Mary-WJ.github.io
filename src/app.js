@@ -340,7 +340,6 @@ if(signupForm){
 
 
 
-
 //login form
 if(loginForm){
     loginForm.addEventListener('submit', (e) => {
