@@ -19,17 +19,6 @@ const logInBtn = document.getElementById('btn-login');
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn-login').addEventListener('click', function() {
-      window.location.href = 'login.html';
-    });
-    document.getElementById('btn-signup').addEventListener('click', function() {
-      window.location.href = 'signup.html';
-    });
-  });
-  
-
-
 // Auth state changes listener
 //check if user is currently sign up or log in
 onAuthStateChanged(auth, (user) => {
