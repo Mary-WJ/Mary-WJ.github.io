@@ -329,7 +329,7 @@ if(contactForm){
             //user create
             alert('Successfully Sign Up');
 
-            window.location.assign('/index.html');
+            window.location.assign('index.html');
         })
         .catch((err)=> {
             alert(err);
@@ -354,7 +354,7 @@ if(contactForm){
         .then((userCredential) => {
             // log in 
             alert('User Logged in')
-            window.location.assign('/index.html');
+            window.location.assign('index.html');
             
           
         })
