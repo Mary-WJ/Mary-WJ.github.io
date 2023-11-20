@@ -310,6 +310,15 @@ if(contactForm){
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('btn-login').addEventListener('click', function() {
+      window.location.href = 'login.html';
+    });
+    document.getElementById('btn-signup').addEventListener('click', function() {
+      window.location.href = 'signup.html';
+    });
+  });
+  
 
 //create new user and store credential in firebase.
 //those who have signup can not sign up again using same sign up info
@@ -327,7 +336,7 @@ if(signupForm){
             //user create
             alert('Successfully Sign Up');
 
-            window.location.assign('../apps/index.html');
+            window.location.assign('index.html');
         })
         .catch((err)=> {
             alert(err);
@@ -352,7 +361,7 @@ if(loginForm){
         .then((userCredential) => {
             // log in 
             alert('User Logged in')
-            window.location.assign('../apps/index.html')
+            window.location.assign('index.html')
             
           
         })
